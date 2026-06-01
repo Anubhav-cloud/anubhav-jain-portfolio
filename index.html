@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anubhav Jain — WordPress Developer & SEO Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#f2ede4;color:#0d0d0d;font-family:'Space Mono',monospace;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+
+.nav{display:flex;justify-content:space-between;align-items:center;padding:20px 36px;border-bottom:2px solid #0d0d0d;position:sticky;top:0;background:#f2ede4;z-index:100}
+.nav-logo{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:3px}
+.nav-tag{font-size:10px;letter-spacing:2px;color:#666;text-transform:uppercase}
+
+.hero{padding:0 36px;border-bottom:2px solid #0d0d0d;display:grid;grid-template-columns:1fr 1fr;min-height:340px}
+.hero-left{padding:40px 0;border-right:2px solid #0d0d0d;padding-right:32px}
+.hero-eyebrow{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#888;margin-bottom:16px}
+.hero-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(72px,13vw,148px);line-height:0.88;letter-spacing:2px}
+.hero-right{padding:40px 0 40px 32px;display:flex;flex-direction:column;justify-content:space-between}
+.hero-desc{font-family:'Libre Baskerville',serif;font-size:15px;line-height:1.85;color:#333;font-style:italic;margin-bottom:24px}
+.hero-role-box{background:#0d0d0d;color:#f2ede4;padding:14px 20px;font-size:10px;letter-spacing:3px;text-transform:uppercase;display:inline-block;margin-bottom:16px}
+.hero-available{font-size:10px;letter-spacing:2px;color:#888;display:flex;align-items:center;gap:8px}
+.dot{width:7px;height:7px;background:#2d8a4e;border-radius:50%;display:inline-block;animation:pulse 2s infinite;flex-shrink:0}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+
+.marquee-strip{background:#0d0d0d;color:#f2ede4;padding:10px 0;overflow:hidden;white-space:nowrap;font-size:11px;letter-spacing:3px;text-transform:uppercase;border-bottom:2px solid #0d0d0d}
+.marquee-inner{display:inline-block;animation:scroll 18s linear infinite}
+@keyframes scroll{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+.about-strip{display:grid;grid-template-columns:200px 1fr;border-bottom:2px solid #0d0d0d}
+.about-label{padding:32px 24px;border-right:2px solid #0d0d0d;font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#888;display:flex;align-items:center}
+.about-content{padding:32px 36px}
+.about-text{font-family:'Libre Baskerville',serif;font-size:15px;line-height:1.9;color:#333;max-width:580px}
+
+.skills-section{display:grid;grid-template-columns:repeat(4,1fr);border-bottom:2px solid #0d0d0d}
+.skill-item{padding:28px 24px;border-right:2px solid #0d0d0d;transition:background 0.2s,color 0.2s;cursor:default}
+.skill-item:last-child{border-right:none}
+.skill-item:hover{background:#0d0d0d;color:#f2ede4}
+.skill-num{font-family:'Bebas Neue',sans-serif;font-size:42px;color:#ddd5c6;line-height:1;transition:color 0.2s}
+.skill-item:hover .skill-num{color:#555}
+.skill-name{font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-top:10px;margin-bottom:6px;font-weight:700}
+.skill-desc{font-size:10px;color:#888;line-height:1.6;transition:color 0.2s}
+.skill-item:hover .skill-desc{color:#bbb}
+
+.proj-header{padding:20px 36px;border-bottom:2px solid #0d0d0d;display:flex;justify-content:space-between;align-items:center}
+.proj-header-label{font-size:10px;letter-spacing:4px;text-transform:uppercase;color:#888}
+.proj-count{font-family:'Bebas Neue',sans-serif;font-size:28px}
+
+.proj-row{display:grid;grid-template-columns:60px 1fr 180px;border-bottom:1px solid #c8bfb0;align-items:start;padding:24px 36px;cursor:pointer;transition:background 0.15s;text-decoration:none;color:#0d0d0d}
+.proj-row:hover{background:#e8e0d0}
+.proj-row:last-of-type{border-bottom:2px solid #0d0d0d}
+.proj-row-num{font-family:'Bebas Neue',sans-serif;font-size:28px;color:#c8bfb0;padding-top:2px}
+.proj-row-name{font-family:'Bebas Neue',sans-serif;font-size:22px;letter-spacing:1px;margin-bottom:4px}
+.proj-row-desc{font-size:11px;color:#666;line-height:1.7;max-width:380px}
+.proj-row-tags{display:flex;gap:6px;flex-wrap:wrap;justify-content:flex-end;padding-top:4px}
+.proj-tag{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 8px;border:1px solid #0d0d0d}
+
+.contact-section{background:#0d0d0d;padding:56px 36px;display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center}
+.contact-big{font-family:'Bebas Neue',sans-serif;font-size:clamp(48px,9vw,96px);line-height:0.9;color:#f2ede4}
+.contact-accent{color:#2d8a4e}
+.contact-links{display:flex;flex-direction:column;gap:16px}
+.contact-link{display:flex;align-items:center;gap:14px;padding:16px;border:1px solid #333;color:#f2ede4;text-decoration:none;transition:background 0.2s}
+.contact-link:hover{background:#1a1a1a}
+.contact-link-icon{width:36px;height:36px;border:1px solid #444;display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.contact-link-label{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:#888;margin-bottom:3px}
+.contact-link-val{font-size:12px}
+
+footer{padding:16px 36px;border-top:1px solid #c8bfb0;display:flex;justify-content:space-between;background:#f2ede4}
+.footer-text{font-size:10px;letter-spacing:1px;color:#aaa}
+
+@media(max-width:640px){
+  .hero,.about-strip{grid-template-columns:1fr}
+  .hero-left{border-right:none;border-bottom:2px solid #0d0d0d;padding-right:0}
+  .hero-right{padding-left:0}
+  .about-label{border-right:none;border-bottom:1px solid #c8bfb0}
+  .skills-section{grid-template-columns:1fr 1fr}
+  .skill-item:nth-child(2n){border-right:none}
+  .skill-item:nth-child(1),.skill-item:nth-child(2){border-bottom:2px solid #0d0d0d}
+  .proj-row{grid-template-columns:48px 1fr}
+  .proj-row-tags{display:none}
+  .contact-section{grid-template-columns:1fr}
+  footer{flex-direction:column;gap:4px}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-logo">Anubhav Jain</div>
+  <div class="nav-tag">WordPress Dev · SEO Specialist · 2025</div>
+</nav>
+
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Creative portfolio</div>
+    <div class="hero-name">ANU<br>BHAV<br>JAIN</div>
+  </div>
+  <div class="hero-right">
+    <div>
+      <div class="hero-role-box">WordPress Dev &amp; SEO Specialist</div>
+      <div class="hero-desc">"I build websites that don't just look good — they rank, convert, and grow your business."</div>
+    </div>
+    <div class="hero-available"><span class="dot"></span> Available for projects</div>
+  </div>
+</section>
+
+<div class="marquee-strip">
+  <span class="marquee-inner">
+    WordPress Development &nbsp;·&nbsp; SEO Optimization &nbsp;·&nbsp; Elementor &nbsp;·&nbsp; On-Page SEO &nbsp;·&nbsp; Technical SEO &nbsp;·&nbsp; Keyword Research &nbsp;·&nbsp; Responsive Design &nbsp;·&nbsp; Page Speed &nbsp;·&nbsp; Organic Traffic &nbsp;·&nbsp; WordPress Development &nbsp;·&nbsp; SEO Optimization &nbsp;·&nbsp; Elementor &nbsp;·&nbsp; On-Page SEO &nbsp;·&nbsp; Technical SEO &nbsp;·&nbsp; Keyword Research &nbsp;·&nbsp; Responsive Design &nbsp;·&nbsp; Page Speed &nbsp;·&nbsp; Organic Traffic &nbsp;·&nbsp;
+  </span>
+</div>
+
+<div class="about-strip">
+  <div class="about-label">About me</div>
+  <div class="about-content">
+    <p class="about-text">A skilled WordPress Developer and SEO Specialist with a passion for creating responsive, user-friendly websites. Experienced in building and customizing sites using Elementor — delivering fast, secure, and optimized digital experiences aligned with business goals.</p>
+  </div>
+</div>
+
+<div class="skills-section">
+  <div class="skill-item">
+    <div class="skill-num">01</div>
+    <div class="skill-name">WordPress</div>
+    <div class="skill-desc">Elementor, themes, plugins, custom builds</div>
+  </div>
+  <div class="skill-item">
+    <div class="skill-num">02</div>
+    <div class="skill-name">SEO</div>
+    <div class="skill-desc">On-page, technical, keyword research</div>
+  </div>
+  <div class="skill-item">
+    <div class="skill-num">03</div>
+    <div class="skill-name">Web Design</div>
+    <div class="skill-desc">UI/UX, responsive layouts, Figma</div>
+  </div>
+  <div class="skill-item">
+    <div class="skill-num">04</div>
+    <div class="skill-name">Performance</div>
+    <div class="skill-desc">Speed, Core Web Vitals, security</div>
+  </div>
+</div>
+
+<div class="proj-header">
+  <div class="proj-header-label">Selected projects</div>
+  <div class="proj-count">08</div>
+</div>
+
+<a class="proj-row" href="https://www.lagatesanddoors.com/" target="_blank">
+  <div class="proj-row-num">01</div>
+  <div class="proj-row-main">
+    <div class="proj-row-name">L.A. Gates &amp; Doors</div>
+    <div class="proj-row-desc">Home page design &amp; optimization — user-friendly experience with efficient navigation.</div>
+  </div>
+  <div class="proj-row-tags"><span class="proj-tag">WordPress</span><span class="proj-tag">Design</span></div>
+</a>
+<a class="proj-row" href="https://yaanwellness.in/" target="_blank">
+  <div class="proj-row-num">02</div>
+  <div class="proj-row-main">
+    <div class="proj-row-name">Yaan Wellness</div>
+    <div class="proj-row-desc">Home page, service pages + full SEO strategy to boost online visibility.</div>
+  </div>
+  <div class="proj-row-tags"><span class="proj-tag">SEO</span><span class="proj-tag">WordPress</span></div>
+</a>
+<a class="proj-row" href="https://radhekrishnaniwas.com/" target="_blank">
+  <div class="proj-row-num">03</div>
+  <div class="proj-row-main">
+    <div class="proj-row-name">Radhe Krishna Niwas</div>
+    <div class="proj-row-desc">Heritage property — home &amp; service pages designed for enhanced user experience.</div>
+  </div>
+  <div class="proj-row-tags"><span class="proj-tag">Design</span><span class="proj-tag">WordPress</span></div>
+</a>
+<a class="proj-row" href="https://myblogvision.com/" target="_blank">
+  <div class="proj-row-num">04</div>
+  <div class="proj-row-main">
+    <div class="proj-row-name">My Blog Vision</div>
+    <div class="proj-row-desc">Built from scratch — visually appealing blogging platform with custom design.</div>
+  </div>
+  <div class="proj-row-tags"><span class="proj-tag">Custom Build</span><span class="proj-tag">Design</span></div>
+</a>
+<a class="proj-row" href="https://jayjinshasan.com/" target="_blank">
+  <div class="proj-row-num">05</div>
+  <div class="proj-row-main">
+    <div class="proj-row-name">Jay Jinshasan</div>
+    <div class="proj-row-desc">SEO implementation to improve search rankings and drive organic traffic.</div>
+  </div>
+  <div class="proj-row-tags"><span class="proj-tag">SEO</span><span class="proj-tag">WordPress</span></div>
+</a>
+<a class="proj-row" href="https://dineshpublication.com/" target="_blank">
+  <div class="proj-row-num">06</div>
+  <div class="proj-row-main">
+    <div class="proj-row-name">Dinesh Publication</div>
+    <div class="proj-row-desc">Home page, product pages + SEO for an educational publisher.</div>
+  </div>
+  <div class="proj-row-tags"><span class="proj-tag">E-commerce</span><span class="proj-tag">SEO</span></div>
+</a>
+<a class="proj-row" href="https://vogzy.com/" target="_blank">
+  <div class="proj-row-num">07</div>
+  <div class="proj-row-main">
+    <div class="proj-row-name">Vogzy</div>
+    <div class="proj-row-desc">Product pages + SEO techniques to drive organic traffic for fabric e-store.</div>
+  </div>
+  <div class="proj-row-tags"><span class="proj-tag">E-commerce</span><span class="proj-tag">SEO</span></div>
+</a>
+<a class="proj-row" href="https://njpediatricneurosurgery.com/" target="_blank">
+  <div class="proj-row-num">08</div>
+  <div class="proj-row-main">
+    <div class="proj-row-name">NJ Pediatric Neurosurgery</div>
+    <div class="proj-row-desc">Medical practice — home page + targeted SEO to attract the right audience.</div>
+  </div>
+  <div class="proj-row-tags"><span class="proj-tag">Medical</span><span class="proj-tag">SEO</span></div>
+</a>
+
+<div class="contact-section">
+  <div class="contact-big">LET'S<br>WORK<br><span class="contact-accent">TOGETHER</span></div>
+  <div class="contact-links">
+    <a class="contact-link" href="tel:+14377337759">
+      <div class="contact-link-icon">📞</div>
+      <div>
+        <div class="contact-link-label">Phone</div>
+        <div class="contact-link-val">+1 437-733-7759</div>
+      </div>
+    </a>
+    <a class="contact-link" href="mailto:jainanubhav056@gmail.com">
+      <div class="contact-link-icon">✉️</div>
+      <div>
+        <div class="contact-link-label">Email</div>
+        <div class="contact-link-val">jainanubhav056@gmail.com</div>
+      </div>
+    </a>
+    <a class="contact-link" href="https://www.linkedin.com/in/anubhav-jain-web-developer/" target="_blank">
+      <div class="contact-link-icon">💼</div>
+      <div>
+        <div class="contact-link-label">LinkedIn</div>
+        <div class="contact-link-val">anubhavjain4</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-text">© 2025 Anubhav Jain</div>
+  <div class="footer-text">WordPress Dev · SEO Specialist · Toronto, CA</div>
+</footer>
+
+</body>
+</html>
